@@ -1,6 +1,6 @@
 package assignment7;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
 	Object[] aItems = new Object[10];
@@ -11,20 +11,19 @@ public class CustomArrayList<T> implements CustomList<T> {
 			if (aItems[i] == null) {
 				aItems[i] = item;
 				return true;
+			} else if (aItems[aItems.length - 1] != null) {
+				aItems = Arrays.copyOf(aItems, aItems.length * 2);
 			}
-//				else if (aItems[aItems.length - 1] != null) {
-//				aItems = Arrays.copyOf(aItems, aItems.length * 2);
-//			}
-			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
 		aItems[index] = item;
-//		if (index == aItems.length -1) {
-//			aItems = Arrays.copyOf(aItems, aItems.length + 1);
-//		}
+		if (index == aItems.length - 1) {
+			aItems = Arrays.copyOf(aItems, aItems.length + 1);
+		}
 		for (int i = aItems.length - 1; i > index; i--) {
 			aItems[i] = aItems[i - 1];
 		}
