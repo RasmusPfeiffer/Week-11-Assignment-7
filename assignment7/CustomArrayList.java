@@ -4,17 +4,14 @@ import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
 	Object[] aItems = new Object[10];
-
+	int iSize = 0;
 	@Override
 	public boolean add(T item) {
-		for (int i = 0; i < aItems.length; i++) {
-			if (aItems[i] == null) {
-				aItems[i] = item;
-				return true;
-			} else if (aItems[aItems.length - 1] != null) {
-				aItems = Arrays.copyOf(aItems, aItems.length * 2);
-			}
-		}
+		if (iSize == aItems.length) {
+			aItems = Arrays.copyOf(aItems, aItems.length * 2);
+		} 
+		aItems[iSize] = item;
+		this.iSize++;
 		return false;
 	}
 
@@ -27,17 +24,13 @@ public class CustomArrayList<T> implements CustomList<T> {
 		for (int i = aItems.length - 1; i > index; i--) {
 			aItems[i] = aItems[i - 1];
 		}
+		this.iSize++;
 		return false;
 	}
 
 	@Override
 	public int getSize() {
-		int i = 0;
-		while (i < aItems.length && aItems[i] != null) {
-			i++;
-		}
-		return i;
-
+		return iSize;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -52,7 +45,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		for (int i = index; i < aItems.length - 2; i++) {
 			aItems[i] = aItems[i + 1];
 		}
+		this.iSize--;
 		return null;
 	}
-
 }
