@@ -13,7 +13,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		}
 		aItems[iSize] = item;
 		this.iSize++;
-		return false;
+		return true;
 	}
 
 	@Override
@@ -44,6 +44,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return (T) aItems[index];
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		if (index >= aItems.length) {
@@ -52,8 +53,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 		for (int i = index; i < aItems.length - 1; i++) {
 			aItems[i] = aItems[i + 1];
 		}
-		aItems[aItems.length-1] = null;
+		if (aItems[aItems.length-1] != null) {
+			aItems = Arrays.copyOf(aItems, aItems.length-1);
+		}
 		this.iSize--;
-		return null;
+		return (T) aItems[index];
 	}
 }

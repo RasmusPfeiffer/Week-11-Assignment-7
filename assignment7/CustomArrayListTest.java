@@ -60,14 +60,14 @@ class CustomArrayListTest {
 	@Test
 	void should_add_an_item_at_index() {
 		CustomList<Integer> lCustom = new CustomArrayList<>();
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 10; i++) {
 			lCustom.add(i);
 		}
-//		lCustom.add(7, 10000);
-//		lCustom.add(9, 20000);
+		lCustom.add(7, 10000);
+		lCustom.add(9, 20000);
 
-		lCustom.remove(40);
-		lCustom.remove(6);
+//		lCustom.remove(9);
+//		lCustom.remove(6);
 		
 		int iExpSize = lCustom.getSize();
 		int iExpResult = lCustom.get(5);
@@ -84,7 +84,6 @@ class CustomArrayListTest {
 		}
 //		lCustom.add(40, 10000);
 //		lCustom.remove(40);
-//		lCustom.remove(6);
 		lCustom.get(40);
 	}
 
