@@ -19,7 +19,7 @@ class CustomArrayListTest {
 	void should_double_List_size() {
 		CustomList<Integer> lCustom = new CustomArrayList<>();
 		for (int i = 0; i < 88; i++) {
-			lCustom.add(i);
+			lCustom.add(10000);
 		}
 		int iExpSize = lCustom.getSize();
 		int iExpResult = lCustom.get(87);
@@ -47,6 +47,8 @@ class CustomArrayListTest {
 		}
 
 		lCustom.remove(4);
+		lCustom.remove(9);
+		lCustom.remove(6);
 
 		int iExpSize = lCustom.getSize();
 		Integer iExpResult = lCustom.get(4);
@@ -61,13 +63,29 @@ class CustomArrayListTest {
 		for (int i = 0; i < 40; i++) {
 			lCustom.add(i);
 		}
-		lCustom.add(5, 10);
+//		lCustom.add(7, 10000);
+//		lCustom.add(9, 20000);
 
+		lCustom.remove(40);
+		lCustom.remove(6);
+		
 		int iExpSize = lCustom.getSize();
 		int iExpResult = lCustom.get(5);
 		assertEquals(40 + 1, iExpSize);
 		assertEquals(10, iExpResult);
 
+	}
+	
+	@Test
+	void should_throw_exception() {
+		CustomList<Integer> lCustom = new CustomArrayList<>();
+		for (int i = 0; i < 40; i++) {
+			lCustom.add(i);
+		}
+//		lCustom.add(40, 10000);
+//		lCustom.remove(40);
+//		lCustom.remove(6);
+		lCustom.get(40);
 	}
 
 }
