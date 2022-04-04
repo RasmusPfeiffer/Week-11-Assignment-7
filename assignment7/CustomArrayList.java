@@ -18,7 +18,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		if (index >= aItems.length) {
+		if (index >= aItems.length || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		aItems = Arrays.copyOf(aItems, aItems.length + 1);
@@ -38,7 +38,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException {
-		if (index >= aItems.length) {
+		if (index >= aItems.length || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		return (T) aItems[index];
@@ -47,7 +47,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
-		if (index >= aItems.length) {
+		if (index >= aItems.length || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		for (int i = index; i < aItems.length - 1; i++) {
