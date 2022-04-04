@@ -84,7 +84,10 @@ class CustomArrayListTest {
 		}
 //		lCustom.add(40, 10000);
 //		lCustom.remove(40);
-		lCustom.get(40);
+//		lCustom.get(40);
+//		lCustom.get(-1);
+//		lCustom.remove(-1);
+		lCustom.add(-1, 5);
 	}
 
 }
