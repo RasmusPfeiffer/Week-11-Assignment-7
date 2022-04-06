@@ -21,7 +21,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index >= aItems.length || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		aItems = Arrays.copyOf(aItems, aItems.length + 1);
+		if (iSize == aItems.length) {
+			aItems = Arrays.copyOf(aItems, aItems.length * 2);
+		}
 		for (int i = aItems.length - 1; i > index; i--) {
 			aItems[i] = aItems[i - 1];
 		}
@@ -50,11 +52,14 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index >= aItems.length || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		for (int i = index; i < aItems.length - 1; i++) {
+		if (index == iSize) {
+			aItems[index-1] = aItems[index];
+		}
+		for (int i = index; i < iSize -1; i++) {
 			aItems[i] = aItems[i + 1];
 		}
-		if (aItems[aItems.length-1] != null) {
-			aItems = Arrays.copyOf(aItems, aItems.length-1);
+		if (aItems[aItems.length - 1] != null) {
+			aItems[aItems.length -1] = (Integer) null;
 		}
 		this.iSize--;
 		return (T) aItems[index];
