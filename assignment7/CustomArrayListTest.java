@@ -52,10 +52,10 @@ class CustomArrayListTest {
 //		lCustom.remove(6);
 
 		int iExpSize = lCustom.getSize();
-		Integer iExpResult = lCustom.get(9);
+		Integer iExpResult = lCustom.get(8);
 
-		assertEquals(9, iExpSize);
-		assertEquals(null, iExpResult);
+		assertEquals(8, iExpSize);
+		assertEquals(9, iExpResult);
 	}
 
 	@Test
@@ -71,9 +71,9 @@ class CustomArrayListTest {
 //		lCustom.remove(6);
 		
 		int iExpSize = lCustom.getSize();
-		int iExpResult = lCustom.get(5);
-		assertEquals(40 + 1, iExpSize);
-		assertEquals(10, iExpResult);
+		int iExpResult = lCustom.get(7);
+		assertEquals(10 + 2, iExpSize);
+		assertEquals(10000, iExpResult);
 
 	}
 	
