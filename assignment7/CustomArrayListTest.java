@@ -26,7 +26,7 @@ class CustomArrayListTest {
 		int iExpResult = lCustom.get(87);
 
 		assertEquals(88, iExpSize);
-		assertEquals(87, iExpResult);
+		assertEquals(10000, iExpResult);
 	}
 
 	@Test
@@ -55,7 +55,7 @@ class CustomArrayListTest {
 		Integer iExpResult = lCustom.get(8);
 
 		assertEquals(8, iExpSize);
-		assertEquals(9, iExpResult);
+		assertEquals(null, iExpResult);
 	}
 
 	@Test
